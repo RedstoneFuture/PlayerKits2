@@ -235,6 +235,9 @@ public class KitsManager {
         KitItem itemLeggings = null;
         KitItem itemBoots = null;
         KitItem itemOffhand = null;
+        
+        //Actions before
+        sendKitActions(kit.getClaimActions(),player,true);
 
         PlayerInventory playerInventory = player.getInventory();
         for(KitItem item : items){
@@ -291,9 +294,6 @@ public class KitsManager {
             sendKitActions(kit.getErrorActions(),player,false);
             return PlayerKitsMessageResult.error(messagesFile.getString("noSpaceError"));
         }
-
-        //Actions before
-        sendKitActions(kit.getClaimActions(),player,true);
 
         //Give kit items
         for(KitItem kitItem : items){
